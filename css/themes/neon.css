@@ -1,0 +1,28 @@
+/* Neon — cyber "suave": superficies sólidas, brillo sutil en títulos y tarjetas. */
+html[data-esp-theme="neon"] {
+  --bg: #070b11;
+  --bg-image:
+    radial-gradient(1200px 520px at 85% -10%, rgba(25, 227, 255, .10), transparent 60%),
+    radial-gradient(900px 500px at -10% 8%, rgba(255, 0, 170, .06), transparent 55%);
+  --header-bg: #0b1119;
+  --nav-bg: #0d1520;
+  --nav-text: #8fb3c4;
+
+  --surface: #0f1722;
+  --surface-2: #131e2c;
+  --surface-3: #1a2a3c;
+  --border: #1d3a50;
+
+  --text: #d5ecf5;
+  --text-strong: #f2fcff;
+  --muted: #9cb9c9;
+
+  --link: #2ee6ff;
+  --accent: #19e3ff;
+  --accent-ink: #00131a;
+  --accent-soft: rgba(25, 227, 255, .12);
+  --section-bar: #0f1c2b;
+
+  --shadow: 0 0 0 1px rgba(25, 227, 255, .06), 0 8px 24px rgba(0, 0, 0, .4), 0 0 18px rgba(25, 227, 255, .07);
+  --text-glow: 0 0 14px rgba(25, 227, 255, .35);
+}

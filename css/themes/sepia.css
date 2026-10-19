@@ -1,0 +1,19 @@
+/* Lectura */
+html[data-esp-theme="sepia"] {
+  --bg: #f3ecdf;
+  --surface: #fcf7ed;
+  --surface-2: #fcf7ed;
+  --surface-3: #f3ecdf;
+  --header-bg: #fcf7ed;
+  --nav-bg: #fcf7ed;
+  --nav-text: #382d21;
+  --border: #d7c7ab;
+  --text: #382d21;
+  --text-strong: #382d21;
+  --muted: #69563e;
+  --link: #804a19;
+  --accent: #804a19;
+  --accent-ink: #ffffff;
+  --accent-soft: color-mix(in srgb, #804a19 13%, #fcf7ed);
+  --section-bar: #f3ecdf;
+}

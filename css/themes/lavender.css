@@ -1,0 +1,19 @@
+/* Lavanda */
+html[data-esp-theme="lavender"] {
+  --bg: #f0edf8;
+  --surface: #fcfbff;
+  --surface-2: #fcfbff;
+  --surface-3: #f0edf8;
+  --header-bg: #fcfbff;
+  --nav-bg: #fcfbff;
+  --nav-text: #302449;
+  --border: #d4cbe5;
+  --text: #302449;
+  --text-strong: #302449;
+  --muted: #66577d;
+  --link: #6842a6;
+  --accent: #6842a6;
+  --accent-ink: #ffffff;
+  --accent-soft: color-mix(in srgb, #6842a6 13%, #fcfbff);
+  --section-bar: #f0edf8;
+}

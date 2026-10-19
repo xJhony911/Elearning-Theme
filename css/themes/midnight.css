@@ -1,0 +1,29 @@
+/* Midnight — azul grisáceo sobrio, acento cian. Es la plantilla para crear temas nuevos. */
+html[data-esp-theme="midnight"] {
+  --bg: #0e1218;
+  --header-bg: #121821;
+  --nav-bg: #161d28;
+  --nav-text: #aab6c6;
+
+  --surface: #161c26;
+  --surface-2: #1c2430;
+  --surface-3: #252f3e;
+  --border: #2a3444;
+
+  --text: #d7dee9;
+  --text-strong: #f1f5fa;
+  --muted: #a5b3c5;
+
+  --link: #5ccfee;
+  --accent: #4cc9f0;
+  --accent-ink: #04141c;
+  --accent-soft: rgba(76, 201, 240, .12);
+  --section-bar: #1f2937;
+
+  /* Opcionales (si los quitas se usan los valores de base.css):
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.25);
+  --bg-image: none;
+  --text-glow: none;
+  --img-filter: brightness(.92); */
+}

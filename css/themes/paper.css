@@ -1,0 +1,19 @@
+/* Papel */
+html[data-esp-theme="paper"] {
+  --bg: #f0f3f7;
+  --surface: #ffffff;
+  --surface-2: #ffffff;
+  --surface-3: #f0f3f7;
+  --header-bg: #ffffff;
+  --nav-bg: #ffffff;
+  --nav-text: #182338;
+  --border: #cbd5e1;
+  --text: #182338;
+  --text-strong: #182338;
+  --muted: #4c5e76;
+  --link: #1c579e;
+  --accent: #1c579e;
+  --accent-ink: #ffffff;
+  --accent-soft: color-mix(in srgb, #1c579e 13%, #ffffff);
+  --section-bar: #f0f3f7;
+}

@@ -1,0 +1,22 @@
+/* ESPOCH Rojo — grafito neutro con el rojo institucional como acento. */
+html[data-esp-theme="espoch-rojo"] {
+  --bg: #101010;
+  --header-bg: #151515;
+  --nav-bg: #1a1a1a;
+  --nav-text: #b9b9b9;
+
+  --surface: #181818;
+  --surface-2: #1f1f1f;
+  --surface-3: #2a2a2a;
+  --border: #303030;
+
+  --text: #dcdcdc;
+  --text-strong: #ffffff;
+  --muted: #b0b0b0;
+
+  --link: #ff6a55;
+  --accent: #ff4d3a;
+  --accent-ink: #1a0300;
+  --accent-soft: rgba(255, 77, 58, .14);
+  --section-bar: #222222;
+}

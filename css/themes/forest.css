@@ -1,0 +1,19 @@
+/* Bosque */
+html[data-esp-theme="forest"] {
+  --bg: #0d1915;
+  --surface: #14271e;
+  --surface-2: #14271e;
+  --surface-3: #0d1915;
+  --header-bg: #14271e;
+  --nav-bg: #14271e;
+  --nav-text: #ddece1;
+  --border: #263d30;
+  --text: #ddece1;
+  --text-strong: #ddece1;
+  --muted: #a5bcae;
+  --link: #96e2ad;
+  --accent: #96e2ad;
+  --accent-ink: #101827;
+  --accent-soft: color-mix(in srgb, #96e2ad 13%, #14271e);
+  --section-bar: #0d1915;
+}

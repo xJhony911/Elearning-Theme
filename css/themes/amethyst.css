@@ -1,0 +1,19 @@
+/* Amatista */
+html[data-esp-theme="amethyst"] {
+  --bg: #171321;
+  --surface: #231c31;
+  --surface-2: #231c31;
+  --surface-3: #171321;
+  --header-bg: #231c31;
+  --nav-bg: #231c31;
+  --nav-text: #e9e0f5;
+  --border: #3c3051;
+  --text: #e9e0f5;
+  --text-strong: #e9e0f5;
+  --muted: #b6a5ce;
+  --link: #c7a5f5;
+  --accent: #c7a5f5;
+  --accent-ink: #101827;
+  --accent-soft: color-mix(in srgb, #c7a5f5 13%, #231c31);
+  --section-bar: #171321;
+}
