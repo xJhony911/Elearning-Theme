@@ -1,0 +1,9 @@
+node_modules/
+dist/
+artifacts/
+web-ext-artifacts/
+__pycache__/
+*.zip
+*.xpi
+.env
+.env.*

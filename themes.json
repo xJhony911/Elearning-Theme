@@ -1,0 +1,90 @@
+[
+  {
+    "id": "midnight",
+    "name": "Midnight",
+    "colors": [
+      "#0e1218",
+      "#161c26",
+      "#4cc9f0"
+    ],
+    "text": "#d7dee9",
+    "scheme": "dark"
+  },
+  {
+    "id": "neon",
+    "name": "Neon",
+    "colors": [
+      "#070b11",
+      "#0f1722",
+      "#19e3ff"
+    ],
+    "text": "#d5ecf5",
+    "scheme": "dark"
+  },
+  {
+    "id": "espoch-rojo",
+    "name": "ESPOCH Rojo",
+    "colors": [
+      "#101010",
+      "#181818",
+      "#ff4d3a"
+    ],
+    "text": "#dcdcdc",
+    "scheme": "dark"
+  },
+  {
+    "id": "forest",
+    "name": "Bosque",
+    "colors": [
+      "#0d1915",
+      "#14271e",
+      "#96e2ad"
+    ],
+    "text": "#ddece1",
+    "scheme": "dark"
+  },
+  {
+    "id": "amethyst",
+    "name": "Amatista",
+    "colors": [
+      "#171321",
+      "#231c31",
+      "#c7a5f5"
+    ],
+    "text": "#e9e0f5",
+    "scheme": "dark"
+  },
+  {
+    "id": "paper",
+    "name": "Papel",
+    "colors": [
+      "#f0f3f7",
+      "#ffffff",
+      "#1c579e"
+    ],
+    "text": "#182338",
+    "scheme": "light"
+  },
+  {
+    "id": "sepia",
+    "name": "Lectura",
+    "colors": [
+      "#f3ecdf",
+      "#fcf7ed",
+      "#804a19"
+    ],
+    "text": "#382d21",
+    "scheme": "light"
+  },
+  {
+    "id": "lavender",
+    "name": "Lavanda",
+    "colors": [
+      "#f0edf8",
+      "#fcfbff",
+      "#6842a6"
+    ],
+    "text": "#302449",
+    "scheme": "light"
+  }
+]

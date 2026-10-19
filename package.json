@@ -1,0 +1,17 @@
+{
+  "name": "espoch-themes",
+  "version": "0.4.0",
+  "private": true,
+  "description": "PersonalizaciÃ³n y accesibilidad visual para el aula virtual ESPOCH",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "build": "python tools/build.py",
+    "lint": "web-ext lint --source-dir dist/firefox",
+    "dev": "web-ext run --source-dir dist/firefox --start-url https://elearning.espoch.edu.ec/",
+    "preview": "python tools/preview-server.py",
+    "new-theme": "node tools/add-theme.mjs"
+  },
+  "devDependencies": {
+    "web-ext": "10.8.0"
+  }
+}

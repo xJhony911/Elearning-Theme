@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "ESPOCH Themes",
+  "version": "0.4.0",
+  "description": "Personaliza el aula virtual ESPOCH: temas claros y oscuros, fuente, tamaño, colores y opciones de lectura.",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "espoch-themes@jonathan",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      },
+      "strict_min_version": "142.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://elearning.espoch.edu.ec/*"
+      ],
+      "css": [
+        "css/base.css",
+        "css/themes/midnight.css",
+        "css/themes/neon.css",
+        "css/themes/espoch-rojo.css",
+        "css/themes/forest.css",
+        "css/themes/amethyst.css",
+        "css/themes/paper.css",
+        "css/themes/sepia.css",
+        "css/themes/lavender.css",
+        "css/accessibility.css"
+      ],
+      "js": [
+        "src/settings.js",
+        "src/content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "ESPOCH Themes",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png"
+    }
+  },
+  "options_ui": {
+    "page": "popup/popup.html",
+    "open_in_tab": true
+  }
+}
