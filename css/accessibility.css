@@ -1,0 +1,24 @@
+/* Loaded last: typography, light palettes and current Moodle/Lambda components. */
+html[data-esp-theme]{font-size:var(--esp-size,16px)!important;color-scheme:dark}
+html[data-esp-theme] body{font-family:var(--esp-font,system-ui,sans-serif)!important;font-size:var(--esp-size,16px)!important;line-height:var(--esp-line-height,1.6)!important}
+html[data-esp-theme] :is(h1,h2,h3,h4,h5,h6,button,input,select,textarea,.btn,.nav-link,.dropdown-item,.form-control){font-family:var(--esp-font,system-ui,sans-serif)!important}
+/* Never apply font-family to *: FontAwesome, MathJax and code keep their own fonts. */
+html[data-esp-theme] :is(p,li,td,th,dd,dt,label,.no-overflow,.form-control,.que .qtext){line-height:var(--esp-line-height,1.6)!important}
+html[data-esp-theme] :is(p,td,th,dd,dt,label,.form-control,.course-content .activityname,.que .qtext){font-size:1em}
+html[data-esp-theme] :is(.login-wrapper,.login-container,.loginform,.login-container .login-heading,.activity-header,.activity-information,.description .course-description-item,.courseindex,.courseindex-item,.drawer-left,.drawer-right,.modal-body,.notification-area .content-area,.notification-area .control-area,.notification-area .content-area .content){background-color:var(--surface)!important;color:var(--text)!important;border-color:var(--border)!important}
+html[data-esp-theme] .login-container .login-divider{border-color:var(--border)!important}
+html[data-esp-theme] :is(.courseindex-item.pageitem,.courseindex-item:hover,.courseindex .courseindex-item:hover,.activity-item:hover){background-color:var(--accent-soft)!important}
+html[data-esp-theme] :is(.courseindex-link,.courseindex-section-title,.activity-information .completion-info,.activity-dates,.submissionstatustable caption){color:var(--text)!important}
+html[data-esp-theme] :is(.path-grade-report-grader .gradeparent,.path-grade-report-user .user-grade,.gradingform_rubric,.gradingform_guide){background-color:var(--surface)!important;color:var(--text)!important}
+html[data-esp-theme] :is(.gradingform_rubric .criterion .description,.gradingform_rubric .criterion .levels .level,.gradingform_guide .criterion){background-color:var(--surface-2)!important;color:var(--text)!important;border-color:var(--border)!important}
+html[data-esp-theme] .gradingform_rubric .criterion .levels .level.checked{background-color:var(--accent-soft)!important;box-shadow:inset 0 0 0 2px var(--accent)}
+html[data-esp-theme] :is(.tox .tox-dialog,.tox .tox-dialog__header,.tox .tox-dialog__footer,.tox .tox-collection,.tox .tox-listboxfield .tox-listbox--select){background:var(--surface)!important;color:var(--text)!important;border-color:var(--border)!important}
+html[data-esp-theme] .tox :is(.tox-label,.tox-collection__item-label,.tox-dialog__title){color:var(--text)!important}
+/* Preserve institutional branding, avatars, equation images and resource artwork. */
+html[data-esp-theme] :is(#header-logo .logo img,.navbar-brand img){filter:none!important;mix-blend-mode:normal!important}
+html[data-esp-theme="paper"],html[data-esp-theme="sepia"],html[data-esp-theme="lavender"],html[data-esp-scheme="light"]{color-scheme:light;--img-filter:none;--shadow:0 2px 12px rgb(0 0 0 / 6%)}
+html[data-esp-scheme="light"] :is(.block .activityiconcontainer img,.timeline-event-list-item .activityiconcontainer img,img[src*="image.php"][src*="/core/"],table img.icon:not(.userpicture),.generaltable img.icon:not(.userpicture),.activityiconcontainer img[src*="monologo"]){filter:none!important}
+html[data-esp-theme][data-esp-links="underline"] :is(#region-main,.block) a:not(.btn):not(.nav-link):not([role="button"]){text-decoration:underline!important;text-underline-offset:.18em}
+html[data-esp-theme][data-esp-motion="reduce"] *,html[data-esp-theme][data-esp-motion="reduce"] *::before,html[data-esp-theme][data-esp-motion="reduce"] *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){html[data-esp-theme] *,html[data-esp-theme] *::before,html[data-esp-theme] *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media print{html[data-esp-theme],html[data-esp-theme] body{background:white!important;color:black!important}html[data-esp-theme]{--bg:#fff!important;--surface:#fff!important;--surface-2:#fff!important;--surface-3:#fff!important;--text:#000!important;--text-strong:#000!important;--muted:#333!important;--border:#aaa!important;--link:#000!important;--accent:#333!important;--accent-ink:#fff!important;--accent-soft:#eee!important;--nav-text:#000!important;--shadow:none!important;--bg-image:none!important;color-scheme:light}html[data-esp-theme] img{filter:none!important}html[data-esp-theme] a{text-decoration:underline}}

@@ -1,0 +1,626 @@
+/* ==========================================================================
+   ESPOCH Themes · base.css
+   Reglas para el aula virtual (Moodle con tema "Lambda"). SOLO usan variables:
+   los colores de cada tema viven en css/themes/<id>.css.
+   Todo cuelga de html[data-esp-theme], así "Sin tema" deja la página intacta.
+   ========================================================================== */
+
+/* Valores por defecto de variables opcionales (un tema puede redefinirlas) */
+html[data-esp-theme] {
+  --bg:#0e1218; --header-bg:#121821; --nav-bg:#161d28; --nav-text:#aab6c6;
+  --surface:#161c26; --surface-2:#1c2430; --surface-3:#252f3e; --border:#2a3444;
+  --text:#d7dee9; --text-strong:#f1f5fa; --muted:#a5b3c5;
+  --link:#5ccfee; --accent:#4cc9f0; --accent-ink:#04141c; --accent-soft:rgba(76,201,240,.12); --section-bar:#1f2937;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 6px 18px rgba(0, 0, 0, .25);
+  --bg-image: none;
+  --text-glow: none;
+  --img-filter: brightness(.92);
+  --ok: #3fb97a;
+  --warn: #e0a93b;
+  --bad: #ff6b6b;
+  color-scheme: dark;
+  scrollbar-color: var(--border) var(--bg);
+}
+
+/* ---------- Fondo y contenedores de página ---------- */
+html[data-esp-theme],
+html[data-esp-theme] body {
+  background-color: var(--bg) !important;
+  background-image: var(--bg-image) !important;
+  background-attachment: fixed !important;
+  color: var(--text) !important;
+}
+html[data-esp-theme] #page,
+html[data-esp-theme] #page-wrapper,
+html[data-esp-theme] #page-wrapper-outer,
+html[data-esp-theme] .wrapper-lambda,
+html[data-esp-theme] .wrapper-lambda-outer,
+html[data-esp-theme] #page-content,
+html[data-esp-theme] #region-main-box,
+html[data-esp-theme] #region-main,
+html[data-esp-theme] #lambda-page-header,
+html[data-esp-theme] #page-header,
+html[data-esp-theme] .drawers,
+html[data-esp-theme] .container-fluid {
+  background: transparent !important;
+  color: var(--text) !important;
+}
+html[data-esp-theme] ::selection { background: var(--accent); color: var(--accent-ink); }
+html[data-esp-theme] :focus-visible { outline: 2px solid var(--accent) !important; outline-offset: 1px; }
+html[data-esp-theme] hr { border-color: var(--border) !important; opacity: 1; }
+
+/* ---------- Tipografía y enlaces ---------- */
+html[data-esp-theme] h1, html[data-esp-theme] h2, html[data-esp-theme] h3,
+html[data-esp-theme] h4, html[data-esp-theme] h5, html[data-esp-theme] h6,
+html[data-esp-theme] .h1, html[data-esp-theme] .h2, html[data-esp-theme] .h3,
+html[data-esp-theme] .h4, html[data-esp-theme] .h5, html[data-esp-theme] .h6,
+html[data-esp-theme] legend, html[data-esp-theme] .card-title {
+  color: var(--text-strong) !important;
+}
+html[data-esp-theme] #page-header h1,
+html[data-esp-theme] .page-header-headings h1 { text-shadow: var(--text-glow); }
+html[data-esp-theme] p, html[data-esp-theme] li, html[data-esp-theme] label,
+html[data-esp-theme] td, html[data-esp-theme] th, html[data-esp-theme] dd,
+html[data-esp-theme] dt, html[data-esp-theme] .col-form-label { color: var(--text); }
+html[data-esp-theme] a { color: var(--link); }
+html[data-esp-theme] a:hover { color: var(--accent); }
+html[data-esp-theme] .text-muted,
+html[data-esp-theme] .muted,
+html[data-esp-theme] .activity-dates,
+html[data-esp-theme] .activity-altcontent,
+html[data-esp-theme] .text-secondary,
+html[data-esp-theme] .form-text { color: var(--muted) !important; }
+html[data-esp-theme] .text-dark,
+html[data-esp-theme] .text-body,
+html[data-esp-theme] .text-black { color: var(--text) !important; }
+html[data-esp-theme] code, html[data-esp-theme] pre, html[data-esp-theme] kbd {
+  background: var(--surface-2) !important; color: var(--text) !important; border-color: var(--border) !important;
+}
+html[data-esp-theme] blockquote { border-color: var(--accent) !important; color: var(--muted); }
+
+/* ---------- Cabecera, logo y navegación superior ---------- */
+html[data-esp-theme] #main-header,
+html[data-esp-theme] #header-logo,
+html[data-esp-theme] header.top {
+  background: var(--header-bg) !important;
+  border-color: var(--border) !important;
+}
+/* El PNG del logo trae fondo blanco opaco: al invertirlo queda negro y "screen" hace que ese negro desaparezca */
+html[data-esp-theme] #header-logo .logo img,
+html[data-esp-theme] .navbar-brand img {
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: screen;
+}
+
+/* Barra principal (ELEARNING · Área personal · Mis cursos): sin recuadros, solo texto + subrayado */
+html[data-esp-theme] .lambda-nav,
+html[data-esp-theme] .lambda-nav .navbar,
+html[data-esp-theme] .lambda-nav .menu,
+html[data-esp-theme] .lambda-nav .moremenu {
+  background: var(--nav-bg) !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+}
+html[data-esp-theme] .lambda-nav :is(ul:not(.dropdown-menu), li, .nav-item, .lambda-search-bar, .search-container, .search-margin, form, i) {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+html[data-esp-theme] .lambda-nav .nav-link {
+  color: var(--nav-text) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-weight: 400;
+}
+html[data-esp-theme] .lambda-nav .nav-link:hover,
+html[data-esp-theme] .lambda-nav .nav-link:focus {
+  color: var(--text-strong) !important;
+  box-shadow: inset 0 -3px 0 color-mix(in srgb, var(--accent) 45%, transparent) !important;
+}
+html[data-esp-theme] .lambda-nav .nav-link.active,
+html[data-esp-theme] .lambda-nav .nav-link[aria-current],
+html[data-esp-theme] .lambda-nav .active > .nav-link {
+  color: var(--text-strong) !important;
+  font-weight: 700 !important;
+  box-shadow: inset 0 -3px 0 var(--accent) !important;
+  text-shadow: var(--text-glow);
+}
+html[data-esp-theme] .lambda-nav .icon,
+html[data-esp-theme] .lambda-nav [class*="icon-search"] { color: var(--nav-text) !important; }
+html[data-esp-theme] .lambda-nav .lambda-search-bar:hover [class*="icon-search"] { color: var(--accent) !important; }
+html[data-esp-theme] .lambda-nav input#navbarsearchbox { background: var(--surface-2) !important; color: var(--text) !important; border: 1px solid var(--border) !important; }
+
+/* Usuario, notificaciones y mensajes: sin recuadros, solo icono con círculo al pasar el mouse */
+html[data-esp-theme] .profileblock,
+html[data-esp-theme] .profileblock :is(.popover-region, .usermenu-container, .usermenu, .dropdown, a:not(.dropdown-item), .nav-link, .icon-no-margin) {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  color: var(--text) !important;
+}
+html[data-esp-theme] .profileblock .popover-region-toggle {
+  border-radius: 50% !important;
+  transition: background .15s, color .15s;
+}
+html[data-esp-theme] .profileblock .popover-region-toggle:hover,
+html[data-esp-theme] .profileblock .popover-region-toggle:focus {
+  background: var(--accent-soft) !important;
+  color: var(--accent) !important;
+}
+html[data-esp-theme] .profileblock #user-menu-toggle:hover { color: var(--accent) !important; }
+html[data-esp-theme] .userinitials {
+  background: var(--surface-3) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border);
+}
+
+/* ---------- Tarjetas, bloques y cajones ---------- */
+html[data-esp-theme] .card,
+html[data-esp-theme] .card-block,
+html[data-esp-theme] .block,
+html[data-esp-theme] .box,
+html[data-esp-theme] .well,
+html[data-esp-theme] .generalbox,
+html[data-esp-theme] .bg-white,
+html[data-esp-theme] .bg-light {
+  background-color: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text);
+}
+html[data-esp-theme] .card,
+html[data-esp-theme] .block { border-radius: var(--radius); box-shadow: var(--shadow); }
+html[data-esp-theme] .card .card,
+html[data-esp-theme] .card-block .card,
+html[data-esp-theme] .card .block { background-color: var(--surface-2) !important; box-shadow: none; }
+html[data-esp-theme] .card-body,
+html[data-esp-theme] .card-text,
+html[data-esp-theme] .block .content { background: transparent !important; color: var(--text); }
+html[data-esp-theme] .card-header,
+html[data-esp-theme] .card-footer,
+html[data-esp-theme] .modal-header,
+html[data-esp-theme] .modal-footer,
+html[data-esp-theme] .popover-region-header-container {
+  background: var(--surface-2) !important;
+  border-color: var(--border) !important;
+}
+html[data-esp-theme] .drawer,
+html[data-esp-theme] .drawerheader,
+html[data-esp-theme] .drawercontent {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text);
+}
+html[data-esp-theme] .bg-pulse-grey { background: var(--surface-3) !important; }
+html[data-esp-theme] .card-img-top,
+html[data-esp-theme] .dashboard-card-img,
+html[data-esp-theme] .course-card .card-img,
+html[data-esp-theme] .courseimage { filter: var(--img-filter); }
+
+/* ---------- Listas ---------- */
+html[data-esp-theme] .list-group,
+html[data-esp-theme] .list-group-item {
+  background: transparent !important;
+  border-color: var(--border) !important;
+  color: var(--text);
+}
+html[data-esp-theme] .list-group-item-action:hover,
+html[data-esp-theme] .list-group-item-action:focus { background: var(--accent-soft) !important; }
+html[data-esp-theme] .border,
+html[data-esp-theme] .border-top,
+html[data-esp-theme] .border-bottom,
+html[data-esp-theme] .border-left,
+html[data-esp-theme] .border-right,
+html[data-esp-theme] .border-start,
+html[data-esp-theme] .border-end { border-color: var(--border) !important; }
+html[data-esp-theme] .activityiconcontainer.courseicon { background: var(--surface-3) !important; }
+
+/* ---------- Botones ---------- */
+html[data-esp-theme] .btn-secondary,
+html[data-esp-theme] .btn-outline-secondary,
+html[data-esp-theme] .btn-light,
+html[data-esp-theme] .btn-default,
+html[data-esp-theme] .btn-icon {
+  background: var(--surface-3) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+html[data-esp-theme] .btn-secondary:hover,
+html[data-esp-theme] .btn-outline-secondary:hover,
+html[data-esp-theme] .btn-light:hover,
+html[data-esp-theme] .btn-icon:hover { border-color: var(--accent) !important; color: var(--text-strong) !important; }
+html[data-esp-theme] .btn-primary,
+html[data-esp-theme] .btn-submit {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: var(--accent-ink) !important;
+}
+html[data-esp-theme] .btn-primary:hover { filter: brightness(1.1); }
+html[data-esp-theme] .btn-link { color: var(--link) !important; background: transparent !important; }
+html[data-esp-theme] .btn-outline-primary { color: var(--accent) !important; border-color: var(--accent) !important; background: transparent !important; }
+
+/* ---------- Formularios ---------- */
+html[data-esp-theme] input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]),
+html[data-esp-theme] select,
+html[data-esp-theme] textarea,
+html[data-esp-theme] .form-control,
+html[data-esp-theme] .form-select,
+html[data-esp-theme] .custom-select {
+  background-color: var(--surface-2) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+html[data-esp-theme] .form-control:focus,
+html[data-esp-theme] input:focus,
+html[data-esp-theme] select:focus,
+html[data-esp-theme] textarea:focus { border-color: var(--accent) !important; box-shadow: 0 0 0 3px var(--accent-soft) !important; }
+html[data-esp-theme] ::placeholder { color: var(--muted) !important; opacity: 1; }
+html[data-esp-theme] .input-group-text { background: var(--surface-3) !important; color: var(--text) !important; border-color: var(--border) !important; }
+html[data-esp-theme] .custom-control-label::before { background: var(--surface-2) !important; border-color: var(--border) !important; }
+
+/* ---------- Menús, ventanas emergentes y diálogos ---------- */
+html[data-esp-theme] .dropdown-menu,
+html[data-esp-theme] .popover,
+html[data-esp-theme] .popover-region-container,
+html[data-esp-theme] .modal-content,
+html[data-esp-theme] .moodle-dialogue-base .moodle-dialogue,
+html[data-esp-theme] .moodle-dialogue-base .moodle-dialogue-wrap,
+html[data-esp-theme] .moodle-dialogue-content,
+html[data-esp-theme] .atto_menu,
+html[data-esp-theme] .tooltip-inner {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+html[data-esp-theme] .dropdown-item { color: var(--text) !important; background: transparent !important; }
+html[data-esp-theme] .dropdown-item:hover,
+html[data-esp-theme] .dropdown-item:focus { background: var(--accent-soft) !important; color: var(--text-strong) !important; }
+html[data-esp-theme] .dropdown-divider { border-color: var(--border) !important; }
+html[data-esp-theme] .popover-region-content-container,
+html[data-esp-theme] .popover-region-content { background: transparent !important; }
+html[data-esp-theme] .moodle-dialogue-hd { background: var(--surface-2) !important; color: var(--text-strong) !important; border-color: var(--border) !important; }
+html[data-esp-theme] .modal-backdrop { background: #000 !important; }
+
+/* ---------- Tablas ---------- */
+html[data-esp-theme] table,
+html[data-esp-theme] .table,
+html[data-esp-theme] .generaltable {
+  background: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+html[data-esp-theme] th,
+html[data-esp-theme] td,
+html[data-esp-theme] .table th,
+html[data-esp-theme] .table td,
+html[data-esp-theme] .generaltable th,
+html[data-esp-theme] .generaltable td { border-color: var(--border) !important; }
+html[data-esp-theme] thead th,
+html[data-esp-theme] .generaltable thead th { background: var(--surface-2) !important; color: var(--text-strong) !important; }
+html[data-esp-theme] .table-striped tbody tr:nth-of-type(odd) > *,
+html[data-esp-theme] .generaltable tr.r1 > *,
+html[data-esp-theme] table.flexible tr.r1 > * { background: var(--surface-2) !important; }
+html[data-esp-theme] .table-hover tbody tr:hover > *,
+html[data-esp-theme] .generaltable tbody tr:hover > * { background: var(--accent-soft) !important; }
+
+/* ---------- Calendario y línea de tiempo (Área personal) ---------- */
+html[data-esp-theme] .calendarmonth th,
+html[data-esp-theme] .calendarmonth td {
+  background: transparent !important;
+  border-color: var(--border) !important;
+  color: var(--text);
+}
+html[data-esp-theme] .calendarmonth td.weekend,
+html[data-esp-theme] .calendarmonth td.dayblank { background: var(--surface-2) !important; }
+html[data-esp-theme] .calendarmonth td.today,
+html[data-esp-theme] .calendarmonth .today { background: var(--accent-soft) !important; box-shadow: inset 0 0 0 1px var(--accent); }
+html[data-esp-theme] .calendarmonth .hasevent { background: var(--surface-3) !important; }
+html[data-esp-theme] .calendar-controls .current { color: var(--text-strong) !important; text-shadow: var(--text-glow); }
+html[data-esp-theme] .calendar-controls a,
+html[data-esp-theme] .arrow_link { color: var(--accent) !important; }
+html[data-esp-theme] .day-number-circle { background: var(--surface-3) !important; color: var(--text) !important; }
+html[data-esp-theme] .timeline-event-list-item { border-color: var(--border) !important; }
+
+/* ---------- Página de curso ---------- */
+html[data-esp-theme] .course-content li.section,
+html[data-esp-theme] .course-content .section,
+html[data-esp-theme] .course-section,
+html[data-esp-theme] ul.topics li.section,
+html[data-esp-theme] ul.weeks li.section,
+html[data-esp-theme] .section .content,
+html[data-esp-theme] .section-item,
+html[data-esp-theme] .summary {
+  background: transparent !important;
+  border-color: var(--border) !important;
+  color: var(--text);
+}
+/* Barras de título de sección: se recolorea el fondo y el filo superior (sin añadir bordes nuevos) */
+html[data-esp-theme] .course-content .sectionname,
+html[data-esp-theme] .course-content .section-header,
+html[data-esp-theme] .course-content .course-section-header,
+html[data-esp-theme] .course-content .sectiontitle {
+  background: var(--section-bar) !important;
+  border-top-color: var(--accent) !important;
+  color: var(--text-strong) !important;
+}
+html[data-esp-theme] .course-content .sectionname a,
+html[data-esp-theme] .course-content .sectionname span,
+html[data-esp-theme] .course-content .sectionname .icon { color: var(--text-strong) !important; }
+html[data-esp-theme] .course-content li.activity,
+html[data-esp-theme] .course-content .activity-item,
+html[data-esp-theme] .course-content .activity-wrapper,
+html[data-esp-theme] .course-content .activityinstance,
+html[data-esp-theme] .course-content .activity-grid {
+  background: transparent !important;
+  border-color: var(--border) !important;
+  color: var(--text);
+}
+html[data-esp-theme] .course-content li.activity:hover { background: var(--accent-soft) !important; }
+html[data-esp-theme] .course-content .activityname a,
+html[data-esp-theme] .course-content .aalink { color: var(--text) !important; }
+html[data-esp-theme] .course-content .activityname a:hover,
+html[data-esp-theme] .course-content .aalink:hover { color: var(--accent) !important; }
+html[data-esp-theme] .course-content .no-overflow,
+html[data-esp-theme] .course-content .contentafterlink,
+html[data-esp-theme] .mod_label .no-overflow { background: transparent !important; color: var(--text); }
+html[data-esp-theme] .completion-dropdown .btn,
+html[data-esp-theme] .btn-success { color: var(--ok) !important; background: rgba(63, 185, 122, .14) !important; border-color: rgba(63, 185, 122, .35) !important; }
+
+/* ---------- Navegación secundaria, migas, paginación, pestañas ---------- */
+html[data-esp-theme] .breadcrumb,
+html[data-esp-theme] .breadcrumb-item { background: transparent !important; }
+html[data-esp-theme] .breadcrumb-item + .breadcrumb-item::before { color: var(--muted) !important; }
+html[data-esp-theme] .nav-tabs { border-color: var(--border) !important; }
+html[data-esp-theme] .nav-tabs .nav-link,
+html[data-esp-theme] .nav-pills .nav-link {
+  color: var(--muted) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html[data-esp-theme] .nav-tabs .nav-link:hover,
+html[data-esp-theme] .nav-pills .nav-link:hover,
+html[data-esp-theme] .nav-tabs .nav-link:focus {
+  color: var(--text-strong) !important;
+  background: var(--accent-soft) !important;
+}
+html[data-esp-theme] .nav-tabs .nav-link.active,
+html[data-esp-theme] .nav-pills .nav-link.active {
+  color: var(--text-strong) !important;
+  font-weight: 700 !important;
+  background: transparent !important;
+  box-shadow: inset 0 -3px 0 var(--accent) !important;
+}
+html[data-esp-theme] .page-link { background: var(--surface-2) !important; border-color: var(--border) !important; color: var(--text) !important; }
+html[data-esp-theme] .page-item.active .page-link { background: var(--accent) !important; color: var(--accent-ink) !important; border-color: var(--accent) !important; }
+
+/* ---------- Avisos, insignias, progreso ---------- */
+html[data-esp-theme] .alert { border-radius: var(--radius); }
+html[data-esp-theme] .alert-info,
+html[data-esp-theme] .alert-primary { background: var(--accent-soft) !important; border-color: var(--accent) !important; color: var(--text) !important; }
+html[data-esp-theme] .alert-success { background: rgba(63, 185, 122, .12) !important; border-color: rgba(63, 185, 122, .5) !important; color: var(--text) !important; }
+html[data-esp-theme] .alert-warning { background: rgba(224, 169, 59, .12) !important; border-color: rgba(224, 169, 59, .5) !important; color: var(--text) !important; }
+html[data-esp-theme] .alert-danger { background: rgba(255, 107, 107, .12) !important; border-color: rgba(255, 107, 107, .5) !important; color: var(--text) !important; }
+html[data-esp-theme] .progress { background: var(--surface-3) !important; }
+html[data-esp-theme] .progress-bar { background: var(--accent) !important; }
+
+/* ---------- Pie de página ---------- */
+html[data-esp-theme] #page-footer,
+html[data-esp-theme] .lambda-page-footer,
+html[data-esp-theme] .footer-blocks,
+html[data-esp-theme] .footer-bottom { background: var(--header-bg) !important; border-color: var(--border) !important; color: var(--muted) !important; }
+html[data-esp-theme] #page-footer a { color: var(--link); }
+
+/* ---------- Contenido de profesores con colores "pegados" (inline) ----------
+   Muchos recursos traen fondo blanco/gris o texto negro escrito a mano en el HTML. */
+html[data-esp-theme] [style*="background-color: rgb(255, 255, 255)"],
+html[data-esp-theme] [style*="background-color:rgb(255,255,255)"],
+html[data-esp-theme] [style*="background-color:#ffffff"],
+html[data-esp-theme] [style*="background-color: #ffffff"],
+html[data-esp-theme] [style*="background-color:#fff;"],
+html[data-esp-theme] [style*="background-color: #fff;"],
+html[data-esp-theme] [style*="background-color: white"],
+html[data-esp-theme] [style*="background-color:white"],
+html[data-esp-theme] [style*="background: white"],
+html[data-esp-theme] [style*="background:#fff"],
+html[data-esp-theme] [style*="background: #fff"],
+html[data-esp-theme] [bgcolor="#ffffff" i],
+html[data-esp-theme] [bgcolor="white" i] { background-color: transparent !important; }
+html[data-esp-theme] [style*="rgb(242, 242, 242)"],
+html[data-esp-theme] [style*="rgb(238, 238, 238)"],
+html[data-esp-theme] [style*="rgb(248, 249, 250)"],
+html[data-esp-theme] [style*="rgb(245, 245, 245)"],
+html[data-esp-theme] [style*="#f2f2f2"],
+html[data-esp-theme] [style*="#eeeeee"],
+html[data-esp-theme] [style*="#f8f9fa"],
+html[data-esp-theme] [style*="#f5f5f5"],
+html[data-esp-theme] [bgcolor="#f2f2f2" i] { background-color: var(--surface-2) !important; }
+html[data-esp-theme] [style*="color: rgb(0, 0, 0)"],
+html[data-esp-theme] [style*="color:rgb(0,0,0)"],
+html[data-esp-theme] [style*="color: #000000"],
+html[data-esp-theme] [style*="color:#000000"],
+html[data-esp-theme] [style*="color:#000;"],
+html[data-esp-theme] [style*="color: #000;"],
+html[data-esp-theme] [style*="color: black"],
+html[data-esp-theme] [style*="color:black"],
+html[data-esp-theme] [style*="color: rgb(33, 37, 41)"],
+html[data-esp-theme] [style*="color: rgb(51, 51, 51)"],
+html[data-esp-theme] font[color="#000000" i],
+html[data-esp-theme] font[color="black" i] { color: var(--text) !important; }
+
+
+/* ==========================================================================
+   Ajustes v0.2
+   ========================================================================== */
+
+/* Calendario: textos de eventos legibles */
+html[data-esp-theme] .calendarmonth :is(.eventname, .day-number, [data-region="day-content"] a, [data-region="day-content"] li) {
+  color: var(--text-strong) !important;
+  opacity: 1 !important;
+}
+html[data-esp-theme] .calendarmonth [data-region="day-content"] a:hover .eventname { color: var(--accent) !important; }
+html[data-esp-theme] .calendarmonth td :is(.text-muted, .sr-only) { opacity: 1; }
+
+/* Iconos negros de Moodle (p. ej. el de "Tarea"): se vuelven blancos. Los de color (PDF, etc.) no se tocan */
+html[data-esp-theme] .activityiconcontainer img[src*="monologo"],
+html[data-esp-theme] .timeline-event-list-item .activityiconcontainer img { filter: brightness(0) invert(1); }
+html[data-esp-theme] .activityiconcontainer.courseicon,
+html[data-esp-theme] .block .activityiconcontainer { background: var(--surface-3) !important; border-radius: 8px; }
+
+/* Mis cursos: nombres de curso legibles */
+html[data-esp-theme] :is(.course-card, .dashboard-card, [data-region="paged-content-page"] .card, [data-region="course-content"] .card)
+  :is(a, .coursename, .multiline, .course-info-container, .card-body, .card-text):not(.text-muted) {
+  color: var(--text-strong) !important;
+}
+html[data-esp-theme] :is(.course-card, .dashboard-card, [data-region="paged-content-page"] .card) :is(a, .coursename):hover { color: var(--accent) !important; }
+html[data-esp-theme] :is(.course-card, [data-region="paged-content-page"] .card) .text-muted { color: var(--muted) !important; }
+html[data-esp-theme] :is(.course-card, [data-region="paged-content-page"] .card) .btn-icon { background: var(--surface-3) !important; color: var(--text) !important; }
+
+/* Navegación secundaria del curso (Curso · Participantes · Calificaciones…): sin barra blanca ni recuadros */
+html[data-esp-theme] :is(.secondary-navigation, nav.moremenu, nav.navigation, .moremenu ul, .more-nav, .nav-tabs, .nav-tabs .nav-item, #page-navbar) {
+  background: transparent !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+}
+
+/* Página de curso: filas planas (sin cajas); solo línea inferior y un hover suave */
+html[data-esp-theme] .course-content :is(li.activity, .activity-item, .activity-wrapper, .activityinstance, .activity-grid, .activity) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+html[data-esp-theme] .course-content li.activity { border-bottom: 1px solid var(--border) !important; }
+html[data-esp-theme] .course-content li.activity:hover { background: var(--accent-soft) !important; }
+/* Barras de sección: se estiliza un solo nivel; los anidados quedan transparentes para no duplicar bordes */
+html[data-esp-theme] .course-content :is(.sectionname, .section-header, .course-section-header, .sectiontitle) {
+  background: var(--section-bar) !important;
+  border: 0 !important;
+  border-top: 3px solid var(--accent) !important;
+  border-radius: 0 0 calc(var(--radius) * .6) calc(var(--radius) * .6);
+  box-shadow: none !important;
+}
+html[data-esp-theme] .course-content :is(.sectionname, .section-header, .course-section-header, .sectiontitle)
+  :is(.sectionname, .section-header, .course-section-header, .sectiontitle) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0;
+}
+
+
+/* ==========================================================================
+   Ajustes v0.3
+   ========================================================================== */
+
+/* ---- Barra de navegación principal: el cuadro gris venía de un estilo del sitio con más peso.
+        ":not(#esp)" suma peso de id para ganarle sin importar qué elemento sea. ---- */
+html[data-esp-theme] header.lambda-nav:not(#esp) {
+  background: var(--nav-bg) !important;
+  border-color: var(--border) !important;
+  box-shadow: none !important;
+}
+html[data-esp-theme] header.lambda-nav:not(#esp) *:not(input):not(.dropdown-menu):not(.dropdown-menu *) {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+html[data-esp-theme] header.lambda-nav:not(#esp) .nav-link {
+  color: var(--nav-text) !important;
+  font-weight: 400 !important;
+}
+html[data-esp-theme] header.lambda-nav:not(#esp) .nav-link:hover,
+html[data-esp-theme] header.lambda-nav:not(#esp) .nav-link:focus {
+  color: var(--text-strong) !important;
+  box-shadow: inset 0 -3px 0 color-mix(in srgb, var(--accent) 45%, transparent) !important;
+}
+html[data-esp-theme] header.lambda-nav:not(#esp) .nav-link.active,
+html[data-esp-theme] header.lambda-nav:not(#esp) .nav-link[aria-current] {
+  color: var(--text-strong) !important;
+  font-weight: 700 !important;
+  box-shadow: inset 0 -3px 0 var(--accent) !important;
+  text-shadow: var(--text-glow);
+}
+
+/* ---- Tablas (Participantes, Calificaciones, Estado de la entrega…):
+        las celdas traían fondo blanco propio. Con :where() esta regla no pesa nada,
+        así que cualquier regla específica de arriba (rayas, hover, cabecera) la sigue superando. ---- */
+html[data-esp-theme] :where(table, .generaltable, .table) :where(tr, td, th, tbody, thead, tfoot, caption):where(:not([class*="text-"], .table-success, .table-danger, .table-warning, .table-info)) {
+  background-color: transparent !important;
+  color: var(--text) !important;
+}
+html[data-esp-theme] :is(.table-success, .table-success > td, .table-success > th) { background-color: rgba(63, 185, 122, .16) !important; }
+html[data-esp-theme] :is(.table-danger, .table-danger > td, .table-danger > th)   { background-color: rgba(255, 107, 107, .16) !important; }
+html[data-esp-theme] :is(.table-warning, .table-warning > td, .table-warning > th) { background-color: rgba(224, 169, 59, .16) !important; }
+html[data-esp-theme] :is(.table-info, .table-info > td, .table-info > th)         { background-color: var(--accent-soft) !important; }
+html[data-esp-theme] :is(.thead-light th, .table-light, .table-light > *) { background-color: var(--surface-2) !important; color: var(--text-strong) !important; }
+/* Estado de la entrega */
+html[data-esp-theme] td.submissionstatussubmitted { background-color: rgba(63, 185, 122, .16) !important; }
+html[data-esp-theme] :is(td.latesubmission, td.overduesubmission, .overduesubmission, .latesubmission) { color: var(--bad) !important; }
+html[data-esp-theme] :is(td.earlysubmission, .earlysubmission) { color: var(--ok) !important; }
+html[data-esp-theme] :is(.submissionstatustable, .submissionsummarytable, .feedbacktable, .gradingsummarytable) td.c0 { background-color: var(--surface-2) !important; color: var(--muted) !important; }
+html[data-esp-theme] .generaltable tbody tr:hover > * { background-color: var(--accent-soft) !important; }
+
+/* ---- Iconos oscuros: en tablas, cajón de bloques y línea de tiempo se vuelven blancos.
+        (En la página del curso se mantienen los iconos de color.) ---- */
+html[data-esp-theme] .block .activityiconcontainer img,
+html[data-esp-theme] .timeline-event-list-item .activityiconcontainer img,
+html[data-esp-theme] img[src*="image.php"][src*="/core/"],
+html[data-esp-theme] table img.icon:not(.userpicture),
+html[data-esp-theme] .generaltable img.icon:not(.userpicture) { filter: brightness(0) invert(1); }
+html[data-esp-theme] .icon, html[data-esp-theme] i.fa, html[data-esp-theme] .fa-regular { color: inherit; }
+
+/* ---- Participantes: filtros alfabéticos, selectores y botones de la tabla ---- */
+html[data-esp-theme] .initialbar .page-link,
+html[data-esp-theme] .initialbar a { background: var(--surface-2) !important; border-color: var(--border) !important; color: var(--text) !important; }
+html[data-esp-theme] .initialbar .page-item.active .page-link,
+html[data-esp-theme] .initialbar .active { background: var(--accent) !important; color: var(--accent-ink) !important; }
+html[data-esp-theme] #participantsform,
+html[data-esp-theme] .userlist,
+html[data-esp-theme] .filter-region,
+html[data-esp-theme] [data-region="filter-region"] { background: transparent !important; color: var(--text); }
+html[data-esp-theme] input[type="checkbox"], html[data-esp-theme] input[type="radio"] { accent-color: var(--accent); }
+
+/* ---- Selector de archivos (entregas) y editores de texto ---- */
+html[data-esp-theme] :is(.filemanager, .filemanager-container, .fp-navbar, .fp-content, .fp-pathbar, .fp-toolbar, .fp-restrictions, .fp-repo-area, .fp-repo-items, .fp-viewbar, .fp-select, .fp-upload-form, .fp-content-center, .fp-iconview) {
+  background: var(--surface-2) !important; border-color: var(--border) !important; color: var(--text) !important;
+}
+html[data-esp-theme] :is(.editor_atto_toolbar, .editor_atto_content_wrap, .editor_atto_content, .editor_atto_wrap) {
+  background: var(--surface-2) !important; border-color: var(--border) !important; color: var(--text) !important;
+}
+html[data-esp-theme] .tox :is(.tox-editor-header, .tox-menubar, .tox-toolbar, .tox-toolbar__primary, .tox-toolbar-overlord, .tox-statusbar, .tox-tbtn, .tox-mbtn) {
+  background: var(--surface-2) !important; border-color: var(--border) !important; color: var(--text) !important;
+}
+html[data-esp-theme] .tox :is(.tox-tbtn svg, .tox-mbtn svg) { fill: var(--text) !important; }
+html[data-esp-theme] .tox :is(.tox-tbtn:hover, .tox-mbtn:hover) { background: var(--accent-soft) !important; }
+html[data-esp-theme] .tox-tinymce { border-color: var(--border) !important; }
+
+/* ---- Cuestionarios (Evaluación diagnóstica, etc.) ---- */
+html[data-esp-theme] .que :is(.info, .formulation, .outcome, .comment, .history, .specificfeedback, .generalfeedback, .rightanswer) {
+  background: var(--surface-2) !important; border-color: var(--border) !important; color: var(--text) !important;
+}
+html[data-esp-theme] .que .content { background: transparent !important; }
+html[data-esp-theme] .que .answer :is(.r0, .r1) { background: transparent !important; }
+html[data-esp-theme] .que .answer :is(.r0, .r1):hover { background: var(--accent-soft) !important; }
+html[data-esp-theme] .que .qtext, html[data-esp-theme] .que .answer label { color: var(--text-strong) !important; }
+html[data-esp-theme] .que .correct { color: var(--ok) !important; }
+html[data-esp-theme] .que .incorrect { color: var(--bad) !important; }
+html[data-esp-theme] .qn_buttons .qnbutton { background-color: var(--surface-3) !important; color: var(--text) !important; border-color: var(--border) !important; }
+html[data-esp-theme] .qn_buttons .qnbutton .thispageholder { border-color: var(--accent) !important; }
+
+/* ---- Foros ---- */
+html[data-esp-theme] :is(.forumpost, .forum-post-container, .forumpost .header, .forumpost .content, .forumpost .options, .forumpost .row.header) {
+  background: var(--surface) !important; border-color: var(--border) !important; color: var(--text) !important;
+}
+
+/* ---- Mensajería (cajón derecho) ---- */
+html[data-esp-theme] :is([data-region="message-drawer"], .message-app, .message-app .header-container, .message-app .body-container, .message-app .footer-container, .message-app .bg-white, .message-app .bg-light) {
+  background: var(--surface) !important; border-color: var(--border) !important; color: var(--text) !important;
+}
+html[data-esp-theme] .message-app .message.received { background: var(--surface-3) !important; color: var(--text) !important; }
+html[data-esp-theme] .message-app .message.send { background: var(--accent) !important; color: var(--accent-ink) !important; }
+html[data-esp-theme] .message-app :is(.list-group-item, .contact, .conversation) { background: transparent !important; }
